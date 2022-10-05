@@ -1,0 +1,4 @@
+O programa realiza a varredura e mata palmiteiros com base em uma chance de 30%, esse processo é um
+tanto rudimentar, uma vez que a morte de um palmiteiro não altera a quantidade de espaços a excluídos
+da varredura de crescimento, como se esse bloco de terra ficasse inutilizado após a morte de um
+palmiteiro.
