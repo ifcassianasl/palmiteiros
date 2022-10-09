@@ -2,7 +2,6 @@
 from fill_palm_map import fill_palm_map
 from grow_palms import grow_palms
 from killed_palms import killed_palms
-import random
 import numpy as np
 
 row = int(input('rows: '))
