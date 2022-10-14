@@ -1,13 +1,15 @@
 import random
 
-def grow_palms(row, column, map_of_palm):
+def grow_palms(row, column, map_of_palm, 
+birth_probability, densities):
   avoid_list = []
+  births = 0
   for x in range(row):
     for y in range(column):
       level = map_of_palm[x][y]
       if (level > 0 and level < 5 and [x, y] not in avoid_list) :
         map_of_palm[x][y] = level + 1
-      if random.random() <= 0.3:
+      if random.random() <= birth_probability:
         if level == 5:
           near_neibor = []
           if y-1 >= 0 and map_of_palm[x][y-1] == 0: 
@@ -23,9 +25,9 @@ def grow_palms(row, column, map_of_palm):
             new_plant = near_neibor[random.randint(0, len(near_neibor) - 1)]
             map_of_palm[new_plant[0]][new_plant[1]] = 1
             avoid_list.append([new_plant[0], new_plant[1]])
-            print([new_plant[0], new_plant[1]], 'Nasceu')
-      
+            births += 1
 
+  densities['birth'].append(births)
 
-  return map_of_palm
+  return map_of_palm, densities
 
